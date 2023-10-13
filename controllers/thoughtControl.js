@@ -10,7 +10,7 @@ const thoughtControl = {
         }
     },
 
-    async getThoughtsByID(req, res) {
+    async getThoughtsById(req, res) {
         try {
             const thought = await Thought.findOne({ _id: req.params.thoughtID });
             if (!thought) {
@@ -41,7 +41,7 @@ const thoughtControl = {
         }
     },
 
-    async updateThoughtByID(req, res) {
+    async updateThoughtById(req, res) {
         try {
             const thought = await Thought.findByIdAndUpdate(req.params.thoughtID, req.body, {
                 new: true,
