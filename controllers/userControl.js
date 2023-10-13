@@ -8,8 +8,8 @@ const userControl = {
         .catch(err => res.status(500).json(err));
     },
 
-    getUserByID(req, res) {
-        User.findByID(req.params.userID)
+    getUserById(req, res) {
+        User.findById(req.params.userID)
         .then(userData => res.json(userData))
         .catch(err => res.status(500).json(err))
     },
