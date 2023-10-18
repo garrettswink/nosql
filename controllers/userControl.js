@@ -14,14 +14,23 @@ const userControl = {
         .catch(err => res.status(500).json(err))
     },
 
-    createUser(req, res) {
-        User.create(req.body)
-        .then(userData => res.json(userData))
-        .catch(err => res.status(500).json(err));
-    },
+    // createUser(req, res) {
+    //     User.create(req.body)
+    //     .then(userData => res.json(userData))
+    //     .catch(err => res.status(500).json(err));
+    // },
+
+    async createUser(req, res) {
+        try {
+          const user = await User.create(req.body);
+          res.json(user);
+        } catch (err) {
+          res.status(500).json(err);
+        }
+      },
 
     updateUserById(req, res) {
-        User.findByIDAndUpdate(req.params.id, req.body, { new: true })
+        User.findOneAndUpdate(req.params.id, req.body, { new: true })
           .then(userData => {
             if (!userData) {
               return res.status(404).json({ message: 'User not found' });
@@ -32,7 +41,7 @@ const userControl = {
       },
 
       deleteUserById(req, res) {
-        User.findByIdAndDelete(req.params.id)
+        User.findOneAndDelete(req.params.id)
         .then(userData => {
             if (!userData) {
                 return res.status(404).json({ message: 'User not found' });
