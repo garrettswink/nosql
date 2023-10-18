@@ -1,5 +1,5 @@
 # NoSQL Challenge: Social Netown API
-Creates by Garrett Swink
+Created by Garrett Swink
 
 ## User Story
 AS A social media startup
@@ -23,7 +23,19 @@ THEN I am able to successfully create, update, and delete users and thoughts in 
 WHEN I test API POST and DELETE routes in Insomnia
 THEN I am able to successfully create and delete reactions to thoughts and add and remove friends to a user’s friend list
 
+## Dependencies
+- Node JS
+- MongoDB
+- Postmate (or Insomnia) for testing
+
+## Installation
+- Install npm package within your terminal
+- Install MongoDB within your terminal
+- Key node server.js into the terminal to activate server
+- Navigate to route tester
+
 ## Demos
+
 ### User Data - Get, Post, Put, Delete
 ![Untitled design (2)](https://github.com/garrettswink/nosql/assets/22800055/6aa3467e-4003-485f-b3dd-08b2bd3fd9d6)
 
