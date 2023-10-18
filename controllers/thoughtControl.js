@@ -72,22 +72,22 @@ const thoughtControl = {
         }
     },
 
-    // async deleteReaction(req, res) {
-    //     try {
-    //         const thought = await Thought.findOneAndUpdate(
-    //             { _id: req.params.thoughtID },
-    //             { $pull: { reactions: { reactionID: req.params.reactionID } } },
-    //             { runValidators: true, new: true }
-    //         );
-    //         if (!thought) {
-    //             return res.status(404).json({ message: 'Not Found' });
-    //         }
-    //         // If the thought was successfully updated, it means the reaction was deleted.
-    //         return res.json({ message: 'Reaction deleted successfully' });
-    //     } catch (error) {
-    //         return res.status(500).json(error);
-    //     }
-    // },
+    async deleteReaction(req, res) {
+        try {
+            const thought = await Thought.findOneAndUpdate(
+                { _id: req.params.thoughtID },
+                { $pull: { reactions: { reactionID: req.params.reactionID } } },
+                { runValidators: true, new: true }
+            );
+            if (!thought) {
+                return res.status(404).json({ message: 'Not Found' });
+            }
+            // If the thought was successfully updated, it means the reaction was deleted.
+            return res.json({ message: 'Reaction deleted successfully' });
+        } catch (error) {
+            return res.status(500).json(error);
+        }
+    },
 
 }
 
