@@ -6,7 +6,7 @@ const {
     deleteThought,
     updateThoughtById,
     createReaction,
-    deleteReaction,
+    // deleteReaction,
 } = require('../../controllers/thoughtControl')
 
 // Get + Post All Thoughts

@@ -4,10 +4,6 @@ const reactionSchema = require('./reaction');
 
 const thoughtSchema = new Schema(
     {
-        username:{
-            type: String,
-            require: true,
-        },
         thoughtText:{
             type: String,
             required: true,
@@ -19,6 +15,11 @@ const thoughtSchema = new Schema(
             default: Date.now,
             get: timestamp => new Date(timestamp).to
         },
+        username:{
+            type: String,
+            require: true,
+        },
+        
         reactions:[reactionSchema],
     },
     {
